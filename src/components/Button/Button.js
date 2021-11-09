@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const STYLES=['btn--primary','btn--outline']
 const SIZES=['btn--medium','btn--large']
+const loginstate=['Logout','/']
 export const Button = ({
     children,
     type,
@@ -20,9 +21,10 @@ export const Button = ({
     : SIZES[0];
 
 
+    const checkLoginstate=loginstate.includes(children) ? loginstate[1] : children
     
     return (
-        <Link to='/login' className='btn-mobile'>
+        <Link to={checkLoginstate} className='btn-mobile'>
             <button 
             className={`btn ${checkButtonStyle} ${checkButtonSize}`} 
             onClick={onClick} 
